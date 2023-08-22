@@ -1,0 +1,25 @@
+
+<header>
+<nav class="navbar navbar-default">
+
+    <div class="navbar-left">
+      {% if app.user %}
+        <div>
+           {{ 'Bonjour'}} {{ app.user.name}}
+        </div>
+    {% endif %}
+    </div>
+    <div class="navbar-right">
+         <li>
+            <a><i class="fa-solid fa-house"></i></a>
+        </li>
+        <li>
+            <a><i class="fa-solid fa-user"></i> Mon profil</a>
+        </li>
+        <li>
+            <a href="{{ path('app_homepage') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Déconnexion</a>
+        </li>
+    </div>
+
+</nav>
+</header>

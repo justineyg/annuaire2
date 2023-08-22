@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annuaire | Sciences Po Saint-Germain-en-Laye{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+    {% block header %}
+    {% include "partials/_header.html.twig" %}
+    {% endblock %}
+    <body>
+<div class="example-wrapper">
+    <h1>Vous êtes :</h1>
+    <div class="btn_section">
+        <p>
+            <a href="#">Un professionnel</a>
+        </p>
+        <p>
+            <a href="#">Un étudiant</a>
+        </p>
+    </div>
+   
+</div>
+</body>
+{% endblock %}
