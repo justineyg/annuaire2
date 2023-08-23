@@ -4,32 +4,76 @@
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    h1{text-align: center}
+    .example-wrapper { margin: 3em auto; max-width: 1000px; width: 100%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .promotions{ height: 500px; display: flex; flex-wrap: wrap;}
+    .promotions>* { flex: 1 1 500px; margin-bottom: 20px; padding: 20px 20px}
+    .text_section{ background: #21524F; height: 100px; display: flex; padding: 10px 20px; justify-content: space-between;}
+    .name{ font-size: 1.3rem; letter-spacing: 1.2px; font-weight: bold;}
+    .year{ font-size: 1rem}
+    i{ color: #FFD144}
+
+
 </style>
 
 <div class="example-wrapper">
     <h1>Les promotions</h1>
 
     <div class="promotions">
+
         <div class="year_of_promotion">
-            <p>Joséphine Baker</p>
-            <p>Promotion 2022</p>
+            <img src={{asset('img/josephineBaker.webp')}} width="100%">
+            <div class="text_section">
+            
+                <p class="name">Joséphine<br> Baker</p>
+                <p class="year">Promotion 2022</p>
+                <p>
+                    <a>
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                </p>
+            </div>
         </div>
 
         <div class="year_of_promotion">
-            <p>Aimé-Césaire</p>
-            <p>Promotion 2021</p>
+            <img src={{asset('img/aimeCesaire.webp')}} width="100%">
+            <div class="text_section">
+                <p class="name">Aimé-Césaire</p>
+                <p class="year">Promotion 2021</p>
+                <p>
+                    <a>
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                </p>
+            </div>
+
         </div>
 
         <div class="year_of_promotion">
-            <p>Simone Veil</p>
-            <p>Promotion 2020</p>
+            <img src={{asset('img/simoneVeil.webp')}} width="100%">
+            <div class="text_section">
+                <p class="name">Simone <br>Veil</p>
+                <p class="year">Promotion 2020</p>
+                <p>
+                    <a>
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                </p>
+            </div>
         </div>
 
         <div class="year_of_promotion">
-            <p>Gisèle Halimi</p>
-            <p>Promotion 2019</p>
+            <img src={{asset('img/giseleHalimi.webp')}} width="100%">
+            <div class="text_section">
+                <p class="name">Gisèle <br>Halimi</p>
+                <p class="year">Promotion 2019</p>
+                <p>
+                    <a>
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                </p>
+            </div>
         </div>
     </div>
 </div>

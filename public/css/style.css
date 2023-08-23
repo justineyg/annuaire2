@@ -1,9 +1,7 @@
-
 @font-face{
     font-family : 'Oree';
-    src : url('/..fonts/Oree-Bold.ttf') format('truetype');
-    src : url('/..fonts/Oree-Italic.ttf') format('truetype');
-    src : url('/..fonts/Oree-Regular.ttf') format('truetype');
+    src : url('/fonts/Oree-Bold.ttf') format('truetype'), url('/fonts/Oree-Italic.ttf') format('truetype'), url('/‡fonts/Oree-Regular.ttf') format('truetype');
+
 }
 
 
