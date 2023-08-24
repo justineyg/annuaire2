@@ -5,8 +5,13 @@
 {% block body %}
 <style>
    h1{text-align: center}
-    .example-wrapper { margin: 3em auto; max-width: 1000px; width: 100%; font: 18px/1.5 sans-serif; }
+    .example-wrapper { margin: 3em auto; max-width: 1000px; width: 100%; font: 18px/1.5 sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 70vh}
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .btn_section i {color: #FFD144}
+    .btn_section { width: 50%;}
+    .btn_section p{font-size: 1.2rem; letter-spacing: 1px; font-weight: bold; border: 3px solid #21524F; padding: 15px 20px; border-radius: 3px; text-align: center}
+    .btn_section p:hover, .btn_section p:focus{ box-shadow: inset -13em 0 0 0 #21524F, inset 13em 0 0 0 #21524F; }
+    .btn_section p:not(:last-child){ margin-bottom: 30px; }
 </style>
     {% block header %}
     {% include "partials/_header.html.twig" %}
@@ -16,13 +21,13 @@
     <h1>Vous êtes :</h1>
     <div class="btn_section">
         <p>
-            <a href="#">Un professionnel</a>
+            <a href="#"><i class="fa-solid fa-briefcase"></i> Un professionnel</a>
         </p>
         <p>
-            <a href="{{ path('app_login')}}">Un étudiant</a>
+            <a href="{{ path('app_login')}}"><i class="fa-solid fa-book"></i> Un étudiant</a>
         </p>
         <p>
-            <a href="{{ path('app_login')}}">Un diplômé</a>
+            <a href="{{ path('app_login')}}"><i class="fa-solid fa-user-graduate"></i> Un diplômé</a>
         </p>
     </div>
    

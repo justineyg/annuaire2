@@ -18,6 +18,14 @@
         {% endblock %}
     </head>
     <body>
+         {# Parcours tous les types de msg flash #}
+        {% for type, messages in app.flashes %}
+            {# Parcours ensuite tous les msg au sein du type #}
+            {% for m in messages %}
+                <p class="alert alert-{{type}}">{{ m }}</p>
+            {% endfor %}            
+        {% endfor %}
+
         {% block body %}{% endblock %}
     </body>
 </html>

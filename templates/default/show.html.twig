@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product{% endblock %}
+
+{% block body %}
+    
+
+    <div class="product">
+        <div class="side_one">
+            <h2>{{ promotion.name }}</h2>
+                <br><br>
+                    <div class="user_informations">
+                        <p>
+                            {{ user.firstname}}
+                        </p>
+                        <br>
+                        <p>
+                            {{ user.name }}
+                        </p>
+                        </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rechercher un diplômé | Sciences Po Saint-Germain-en-Laye {% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 1000px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    strong{text-decoration: underline}
+    .informations{ margin-bottom: 20px}
+    input, select{margin-bottom: 20px; padding: 15px 20px; border-radius: 2px; border: 1px solid #fff;}
+    .btn-primary{background: #CCB87D; padding: 15px 20px; font-size: 1rem; font-weight: bold; color: #002F34; border: 1px solid #CCB87D; border-radius: 2px}
+</style>
+    { include '_header.html'}
+    <div class="example-wrapper">
+
+    <section class="informations">
+        <h1>Rechercher un diplômé</h1>
+        <p>Lancer une recherche à partir d'un prénom et d'un nom.</p>
+        <p>Si le résultat est nul et que vous êtes diplômé(e), merci de <strong><a>nous contacter</a></strong> pour mettre à jour vos informations.</p>
+    </section>
+
+    <section>
+        <form method="post">
+
+
+            <input type="firstname" name="firstname" id="inputFirstName" class="form-control" autocomplete="firstName" placeholder="Beaufort" required autofocus>
+            <input type="name" name="name" id="inputName" class="form-control" autocomplete="name" placeholder="Nicholas" required autofocus>
+
+            <select name="promotion" id="selectPromotion" class="form-control" autocomplete="current-promotion" placeholder="" required>
+                <option>Joséphine Baker, 2022</option>
+                <option>Simone Veil, 2021</option>
+                <option>Aimé-Césaire, 2020</option>
+                <option>Gisèle Halimi, 2019</option>
+            </select>
+            <button class="btn btn-lg btn-primary" type="submit"> Se connecter</button>
+        </form>
+    </div>
+    </section>
+
+
+</div>
+{% endblock %}
