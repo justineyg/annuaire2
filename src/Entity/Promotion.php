@@ -21,6 +21,9 @@ class Promotion
     #[ORM\OneToMany(mappedBy: 'promotion', targetEntity: Profil::class)]
     private Collection $profils;
 
+    #[ORM\OneToOne(mappedBy: 'promotion', cascade: ['persist', 'remove'])]
+    private ?YearOfPromotion $yearOfPromotion = null;
+
     public function __construct()
     {
         $this->profils = new ArrayCollection();
@@ -69,6 +72,23 @@ class Promotion
                 $profil->setPromotion(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getYearOfPromotion(): ?YearOfPromotion
+    {
+        return $this->yearOfPromotion;
+    }
+
+    public function setYearOfPromotion(YearOfPromotion $yearOfPromotion): static
+    {
+        // set the owning side of the relation if necessary
+        if ($yearOfPromotion->getPromotion() !== $this) {
+            $yearOfPromotion->setPromotion($this);
+        }
+
+        $this->yearOfPromotion = $yearOfPromotion;
 
         return $this;
     }

@@ -29,11 +29,6 @@ body{padding: 0; height: 100vh}
     .alert.alert-danger, p{ margin-bottom: 20px}
 
 </style>
-    {% if app.user %}
-        <div class="mb-3">
-            Tu es connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
     <section>
     <div class="section__left" style="background: url('{{'/img/diplomes.webp'}}')"  width="100%";>
         <div class="text">
