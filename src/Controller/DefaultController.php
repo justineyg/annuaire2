@@ -17,11 +17,4 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    #[Route('promotion/{id}', name: 'show')]
-    public function promotion(int $id, PromotionRepository $repo): Response{
-        $promotion = $repo->find($id);
-        return $this->render('promotion/show..html.twig', [
-            'promotion' => $promotion,
-        ]);
-    }
 }
