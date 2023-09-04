@@ -23,59 +23,21 @@
 
     <div class="promotions">
 
+        {% for promotion in promotions %}
         <div class="year_of_promotion">
             <img src={{asset('img/josephineBaker.webp')}} width="100%">
             <div class="text_section">
             
-                <p class="name">Joséphine<br> Baker</p>
-                <p class="year">Promotion 2022</p>
+                <p class="name">{{promotion.name}}</p>
+                <p class="year">Promotion {{promotion.year.id}}</p>
                 <p>
-                    <a>
+                    <a href="{{ path('show', {'id': promotion.id}) }}">
                         <i class="fa-solid fa-arrow-right-long"></i>
                     </a>
                 </p>
             </div>
         </div>
-
-        <div class="year_of_promotion">
-            <img src={{asset('img/aimeCesaire.webp')}} width="100%">
-            <div class="text_section">
-                <p class="name">Aimé-Césaire</p>
-                <p class="year">Promotion 2021</p>
-                <p>
-                    <a>
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </p>
-            </div>
-
-        </div>
-
-        <div class="year_of_promotion">
-            <img src={{asset('img/simoneVeil.webp')}} width="100%">
-            <div class="text_section">
-                <p class="name">Simone <br>Veil</p>
-                <p class="year">Promotion 2020</p>
-                <p>
-                    <a>
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </p>
-            </div>
-        </div>
-
-        <div class="year_of_promotion">
-            <img src={{asset('img/giseleHalimi.webp')}} width="100%">
-            <div class="text_section">
-                <p class="name">Gisèle <br>Halimi</p>
-                <p class="year">Promotion 2019</p>
-                <p>
-                    <a>
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </p>
-            </div>
-        </div>
+        {% endfor %}  
     </div>
 </div>
 {% endblock %}

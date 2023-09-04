@@ -45,6 +45,9 @@ class Profil
     #[ORM\JoinColumn(nullable: false)]
     private ?BusinessSector $profession = null;
 
+    #[ORM\OneToOne(mappedBy: 'profil', cascade: ['persist', 'remove'])]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -154,6 +157,23 @@ class Profil
     public function setProfession(?BusinessSector $profession): static
     {
         $this->profession = $profession;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): static
+    {
+        // set the owning side of the relation if necessary
+        if ($user->getProfil() !== $this) {
+            $user->setProfil($this);
+        }
+
+        $this->user = $user;
 
         return $this;
     }
