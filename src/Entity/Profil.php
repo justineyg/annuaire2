@@ -42,11 +42,12 @@ class Profil
     private ?string $email = null;
 
     #[ORM\ManyToOne(inversedBy: 'profil')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable:true, onDelete:"SET NULL")]
     private ?BusinessSector $profession = null;
 
-    #[ORM\OneToOne(mappedBy: 'profil', cascade: ['persist', 'remove'])]
-    private ?User $user = null;
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
+
 
     public function getId(): ?int
     {
@@ -161,19 +162,14 @@ class Profil
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getSlug(): ?string
     {
-        return $this->user;
+        return $this->slug;
     }
 
-    public function setUser(User $user): static
+    public function setSlug(string $slug): static
     {
-        // set the owning side of the relation if necessary
-        if ($user->getProfil() !== $this) {
-            $user->setProfil($this);
-        }
-
-        $this->user = $user;
+        $this->slug = $slug;
 
         return $this;
     }
