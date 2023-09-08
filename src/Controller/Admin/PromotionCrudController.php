@@ -5,9 +5,10 @@ namespace App\Controller\Admin;
 use App\Entity\Promotion;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class PromotionCrudController extends AbstractCrudController
@@ -34,6 +35,10 @@ class PromotionCrudController extends AbstractCrudController
             TextField::new('name'),
             DateTimeField::new('createdAt')
                 ->hideOnForm(),
+            
+            ImageField::new('image')
+                ->setUploadDir('public/img/uploads')
+                ->setBasePath('uploads'),
         ];
     }
 

@@ -35,14 +35,16 @@ class ProfilRepository extends ServiceEntityRepository
 //            ->getResult()
 //        ;
 //    }
-
-//    public function findOneBySomeField($value): ?Profil
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+   /**
+    * @return Profil[] Returns an array of Profil objects
+    */
+   public function findById($id): array
+   {
+       return $this->createQueryBuilder('p')
+           ->andWhere('p.id = :id')
+           ->setParameter('id', $id)
+           ->getQuery()
+           ->getOneOrNullResult()
+       ;
+   }
 }

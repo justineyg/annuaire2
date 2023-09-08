@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-
+use App\Repository\ProfilRepository;
 use App\Repository\PromotionRepository;
 use App\Repository\YearOfPromotionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,25 +12,34 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
     #[Route('/default', name: 'app_default')]
-    public function index(PromotionRepository $repository, YearOfPromotionRepository $r): Response
+    public function index(PromotionRepository $repository): Response
     {
         $promotions = $repository->findAll();
-        $years = $r->findAll();
 
 
         return $this->render('default/index.html.twig', [
             "promotions" => $promotions,
-            "years" => $years,
 
         ]);
     }
 
-    #[Route('/promotion/{id}', name: 'show')]
-    public function promotion(int $id, PromotionRepository $r): Response
+    // #[Route('/promotion/{id}', name: 'show')]
+    // public function promotion(int $id, PromotionRepository $r): Response
+    // {
+    //     $promotion = $r->find($id);
+        
+    //     return $this->render('promotion/index.html.twig', [
+    //         'promotion' => $promotion,
+            
+    //     ]);
+    // }
+
+    #[Route('promotion/{id}', name: 'show')]
+    public function profil(int $id, ProfilRepository $rep):Response
     {
-        $promotion = $r->find($id);
-        return $this->render('promotion/index.html.twig', [
-            'promotion' => $promotion,
+        $profils = $rep->findAll();
+        return $this->render('profil/detail.html.twig', [
+            'profil' => $profils,
         ]);
     }
 

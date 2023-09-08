@@ -20,11 +20,11 @@ class ProfilController extends AbstractController
     //     ]);
     // }
 
-    #[Route('/{id}', name :'app_profil_show', methods: ['GET'])]
+    #[Route('promotion/{id}', name :'app_promotion_index', methods: ['GET'])]
     public function get(EntityManagerInterface $em): Response
     {
         $profil = $em->getRepository(Profil::class)->findAll();
-        return $this->render('profil/show.html.twig', [
+        return $this->render('promotion/show.html.twig', [
             'profil' => $profil,
         ]);
     }

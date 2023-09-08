@@ -29,10 +29,6 @@ class Profil
 
     #[ORM\ManyToOne(inversedBy: 'profils')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?YearOfPromotion $year = null;
-
-    #[ORM\ManyToOne(inversedBy: 'profils')]
-    #[ORM\JoinColumn(nullable: false)]
     private ?BusinessSector $businessSector = null;
 
     #[ORM\Column]
@@ -47,6 +43,9 @@ class Profil
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $job = null;
 
 
     public function getId(): ?int
@@ -102,17 +101,6 @@ class Profil
         return $this;
     }
 
-    public function getYear(): ?YearOfPromotion
-    {
-        return $this->year;
-    }
-
-    public function setYear(?YearOfPromotion $year): static
-    {
-        $this->year = $year;
-
-        return $this;
-    }
 
     public function getBusinessSector(): ?BusinessSector
     {
@@ -170,6 +158,18 @@ class Profil
     public function setSlug(string $slug): static
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getJob(): ?string
+    {
+        return $this->job;
+    }
+
+    public function setJob(?string $job): static
+    {
+        $this->job = $job;
 
         return $this;
     }

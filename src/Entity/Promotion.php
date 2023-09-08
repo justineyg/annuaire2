@@ -21,18 +21,17 @@ class Promotion
     #[ORM\OneToMany(mappedBy: 'promotion', targetEntity: Profil::class)]
     private Collection $profils;
 
-    #[ORM\OneToOne(inversedBy: 'promotion', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?YearOfPromotion $year = null;
-
-    #[ORM\OneToOne(mappedBy: 'name', cascade: ['persist', 'remove'])]
-    private ?YearOfPromotion $yearOfPromotion = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $image = null;
 
     public function __construct()
     {
         $this->profils = new ArrayCollection();
     }
-
+    public function __toString()
+    {
+        return $this->getName();
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -80,31 +79,14 @@ class Promotion
         return $this;
     }
 
-    public function getYear(): ?YearOfPromotion
+    public function getImage(): ?string
     {
-        return $this->year;
+        return $this->image;
     }
 
-    public function setYear(YearOfPromotion $year): static
+    public function setImage(?string $image): static
     {
-        $this->year = $year;
-
-        return $this;
-    }
-
-    public function getYearOfPromotion(): ?YearOfPromotion
-    {
-        return $this->yearOfPromotion;
-    }
-
-    public function setYearOfPromotion(YearOfPromotion $yearOfPromotion): static
-    {
-        // set the owning side of the relation if necessary
-        if ($yearOfPromotion->getName() !== $this) {
-            $yearOfPromotion->setName($this);
-        }
-
-        $this->yearOfPromotion = $yearOfPromotion;
+        $this->image = $image;
 
         return $this;
     }
