@@ -2,6 +2,7 @@
 
 namespace App\EventSubscriber;
 
+use App\Entity\Promotion;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityUpdatedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -25,36 +26,35 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         ];
     }
 
+    public function uploadImage($event)
+    {
+        $entity = $event->getEntityInstance();
+
+        $tmp_name = $_FILES['Promotion']['tmp_name']['image'];
+        $filename = uniqid();
+        $extension = pathinfo($_FILES['Promotion']['name']['image'], PATHINFO_EXTENSION);
+
+        $project_dir = $this->appKernel->getProjectDir();
+
+        move_uploaded_file($tmp_name, $project_dir.'/public/img/uploads/'.$filename.'.'.$extension);
+
+        $entity->setImage($filename.'.'.$extension);
+    }
+
+
     public function updateImage(BeforeEntityUpdatedEvent $event)
     {
-       
-        if ($_FILES['Profil']['tmp_name']['image'] != ''){
-            $entity = $event->getEntityInstance();
-            
-            $tmp_name = $_FILES['Profil']['tmp_name']['image'];
-            $filename = uniqid();
-            $extension = pathinfo($_FILES['Profil']['name']['image'], PATHINFO_EXTENSION);
+        if(!($event->getEntityInstance() instanceof Promotion)){
+            return;
+        }
 
-            $project_dir = $this->appKernel->getProjectDir();
-
-            move_uploaded_file($tmp_name, $project_dir.'/public/uploads/'.$filename.'.'.$extension);
-
-            $entity->setImage($filename.'.'.$extension);
+        if ($_FILES['Promotion']['tmp_name']['image'] != ''){
+            $this->uploadImage($event);
 
         }
     }
     public function setImage(BeforeEntityPersistedEvent $event)
     {
-        $entity = $event->getEntityInstance();
-
-        $tmp_name = $_FILES['Profil']['tmp_name']['image'];
-        $filename = uniqid();
-        $extension = pathinfo($_FILES['Profil']['name']['image'], PATHINFO_EXTENSION);
-
-        $project_dir = $this->appKernel->getProjectDir();
-
-        move_uploaded_file($tmp_name, $project_dir.'/public/uploads/'.$filename.'.'.$extension);
-
-        $entity->setImage($filename.'.'.$extension);
+        $this->uploadImage($event);
     }
 }

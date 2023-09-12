@@ -18,7 +18,10 @@
         {% endblock %}
     </head>
     <body>
-
+        <style>
+    nav i{ color: #FFD144}
+    h1{text-align: center}
+</style>
          {# Parcours tous les types de msg flash #}
         {% for type, messages in app.flashes %}
             {# Parcours ensuite tous les msg au sein du type #}

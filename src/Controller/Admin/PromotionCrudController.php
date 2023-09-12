@@ -37,8 +37,9 @@ class PromotionCrudController extends AbstractCrudController
                 ->hideOnForm(),
             
             ImageField::new('image')
-                ->setUploadDir('public/img/uploads')
-                ->setBasePath('uploads'),
+                // ->onlyOnIndex()
+                ->setUploadDir('public/img/uploads/')
+                ->setBasePath('img/uploads'),
         ];
     }
 

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte | Annuaire Sciences Po Saint-Germain-en-Laye{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+{% include "partials/_header.html.twig" %}
+<div class="example-wrapper">
+    <div>
+        <aside>
+            <span>Mon compte</span>
+            <p>Bienvenue, {{app.user.lastname}}</hp>
+            <nav>
+                <a href="#"><i class="fa-solid fa-user"></i> Mes informations</a>
+            </nav>
+        </aside>
+
+        <section>
+            <h2>Mes informations</h2>
+            <p>Modifier vos informations, identifiants et préférences...</p>
+
+            <p>Modifier vos informations, identifiants et préférences...</p>
+            <p>Modifier vos informations, identifiants et préférences...</p>
+            <p>Modifier vos informations, identifiants et préférences...</p>
+        </section>
+    </div>
+</div>
+{% endblock %}
