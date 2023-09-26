@@ -11,9 +11,11 @@ body{padding: 0; height: 100vh}
     section{display:flex; height: 100vh;}
     .section__right, .section__left{width: 50%}
     .section__right{display: flex; justify-content: center; align-items: center; flex-direction: column}
-    .section__left{background: rgba(33,83,79,.8); z-index: 2}
-    .text{ position: absolute; width: 50%;
-    height: 100%;
+    .section__left{ background-color: rgba(33,83,79,.8); z-index: 2}
+    .text{ 
+        /* position: absolute;  */
+
+    height: 100vh;
     display: flex;
     justify-content: center;
     background: rgba(33, 82,79, .8);
@@ -22,7 +24,7 @@ body{padding: 0; height: 100vh}
     flex-direction: column;
     padding: 0 50px;
     }
-    .section__left img{height: 100vh; object-fit: cover;}
+    /* .section__left img{height: 100vh; object-fit: cover;} */
     form{display: flex; flex-direction: column;}
     input{margin-bottom: 20px; padding: 10px 20px}
     .btn-primary{background: #CCB87D; padding: 15px 20px; font-size: 1rem; font-weight: bold; color: #002F34; border: 1px solid #CCB87D; border-radius: 2px}
@@ -30,7 +32,7 @@ body{padding: 0; height: 100vh}
 
 </style>
     <section>
-    <div class="section__left" style="background: url('{{'/img/diplomes.webp'}}')"  width="100%";>
+    <div class="section__left" style="background: url('{{'/img/diplomes.webp'}}');"  width="100%" height: "100%";>
         <div class="text">
             <p>Bonjour,</p><br>
             <p>et bienvenue sur l'annuaire des alumnis </p>
