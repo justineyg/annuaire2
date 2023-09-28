@@ -35,16 +35,17 @@ class ProfilRepository extends ServiceEntityRepository
 //            ->getResult()
 //        ;
 //    }
-   /**
-    * @return Profil[] Returns an array of Profil objects
-    */
-   public function findById($id): array
-   {
-       return $this->createQueryBuilder('p')
-           ->andWhere('p.id = :id')
-           ->setParameter('id', $id)
-           ->getQuery()
-           ->getOneOrNullResult()
-       ;
-   }
+    /**
+        * @return Profil[] Returns an array of Profil objects
+        */
+    public function findById($id): array
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
 }

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ promotion.name }}{% endblock %}
+{% block title %}{{promotion.name}}{% endblock %}
 
 {% block body %}
     <style>
@@ -88,34 +88,38 @@ only screen and (max-width: 760px),
     </style>
 		
         <div class="example-wrapper">
-            <h1>{{ promotion.name }}</h1>
+            <h1>Promotion : {{promotion.name}}</h1>
                 <br><br>
                 
-                {# {% for profil in profils %} #}
+
 					
                     <div class="user_informations">
                        <table>
                             <thead>
                                 <tr>
-                                <th>Nom Prénom</th>
+                                <th>Nom</th>
+								<th>Prénom</th>
                                 <th>Secteur d'activité</th>
-                                <th>Promotion (année et nom)</th>
+                                <th>Promotion</th>
                                 <th>Contact</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
+								{% for p in profils %}
 								
-                                <td data-column="First Name">{#  <a href="{{path( 'app_profil_detail', {'slug': profil.slug}) }}"> {{ profil.lastname, profil.firstname }}</a> #}</td>
-                                <td data-column="Job Title">profil.businessSector</td>
-                                <td data-column="Twitter">profil.namePromotion</td>
+                                <td data-column="First Name"><a href="{{path( 'app_profil_detail', {'slug': p.slug}) }}"> {{ p.lastname}}</a></td>
+                                {# <td data-column="First Name">{{p.lastname}}</a></td> #}
+								<td data-column="Job Title">{{p.firstname}}</td>
+								<td data-column="Job Title">{{p.businessSector}}</td>
+                                <td data-column="Twitter">{{p.promotion.name}}</td>
 								<td></td>
                                 </tr>
-								
+								{% endfor %}
                             </tbody>
                         </table>
                     </div>
-				{# {% endfor %} #}
+				
 					
                 
         </div>
