@@ -86,7 +86,7 @@ only screen and (max-width: 760px),
 
 }
     </style>
-		
+		{% include "partials/_header.html.twig" %}
         <div class="example-wrapper">
             <h1>Promotion : {{promotion.name}}</h1>
                 <br><br>
@@ -99,7 +99,8 @@ only screen and (max-width: 760px),
                                 <tr>
                                 <th>Nom</th>
 								<th>Prénom</th>
-                                <th>Secteur d'activité</th>
+                                <th>Profession</th>
+								<th>Secteur d'activité</th>
                                 <th>Promotion</th>
                                 <th>Contact</th>
                                 </tr>
@@ -111,6 +112,7 @@ only screen and (max-width: 760px),
                                 <td data-column="First Name"><a href="{{path( 'app_profil_detail', {'slug': p.slug}) }}"> {{ p.lastname}}</a></td>
                                 {# <td data-column="First Name">{{p.lastname}}</a></td> #}
 								<td data-column="Job Title">{{p.firstname}}</td>
+								<td data-column="Job Title">{{p.job}}</td>
 								<td data-column="Job Title">{{p.businessSector}}</td>
                                 <td data-column="Twitter">{{p.promotion.name}}</td>
 								<td></td>

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}?{% endblock %}
+{% block title %}{{profil.firstname}}{{profil.lastname}}{% endblock %}
 
 {% block body %}
     <style>
@@ -86,9 +86,9 @@ only screen and (max-width: 760px),
 
 }
     </style>
-     
+     {% include "partials/_header.html.twig" %}
         <div class="example-wrapper">
-            <h1>{{profil.firstname}}</h1>
+            <h1>{{profil.firstname}} {{profil.lastname}}</h1>
                 <br><br>
                 {# {% for profil in profils %} #}
                 {# {% for profil in profils %} #}
@@ -97,7 +97,8 @@ only screen and (max-width: 760px),
                        <table>
                             <thead>
                                 <tr>
-                                <th>Nom Prénom</th>
+								<th>Biographie</th>
+								<th>Métier</td>
                                 <th>Secteur d'activité</th>
                                 <th>Promotion (année et nom)</th>
                                 <th>Contact</th>
@@ -107,8 +108,10 @@ only screen and (max-width: 760px),
                                 <tr>
 								
                                 {# <td data-column="First Name"><a href="#"> {{ [profil.lastname, profil.firstname ]}}</a> </td> #}
-                                <td data-column="Last Name">.firstname</td>
-                                <td data-column="Job Title">.promotion</td>
+								<td>{{profil.biography}}</td>
+								<td data-column="Job Title">{{profil.job}}</td>
+								<td data-column="Job Title">{{profil.businessSector}}</td>
+                                <td data-column="Job Title">{{profil.promotion}}</td>
                                 <td data-column="Twitter">@james</td>
                                 </tr>
 								</a>

@@ -12,29 +12,40 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProfilController extends AbstractController
 {
-    private $entityManager;
+    // private $entityManager;
 
-    public function __construct(EntityManagerInterface $entityManager)
-    {
-        $this->entityManager = $entityManager;
+    // public function __construct(EntityManagerInterface $entityManager)
+    // {
+    //     $this->entityManager = $entityManager;
 
-          ;
-    }
+    //       ;
+    // }
 
     
 
-        #[Route('/profil/{slug}', name: 'app_profil_detail', methods: ['GET'])]
-    public function index($slug, Promotion $promotion, Profil $profil): Response
+    //     #[Route('/profil/{slug}', name: 'app_profil_detail', methods: ['GET'])]
+    // public function index($slug, Promotion $promotion, Profil $profil): Response
+    // {
+    //     $profil = $this->entityManager->getRepository(Profil::class)->findOneBySlug($slug);
+
+    //     if(!$profil){
+    //         return $this->redirectToRoute('promotion');
+    //     }
+
+    //     return $this->render('profil/detail.html.twig', [
+    //         'profil' => $profil,
+    //         'promotion' => $promotion,
+
+    //     ]);
+    // }
+
+
+    #[Route('/profil/{slug}', name: 'app_profil_detail', methods: ['GET'])]
+    public function index(Profil $profil): Response
     {
-        $profil = $this->entityManager->getRepository(Profil::class)->findOneBySlug($slug);
-
-        if(!$profil){
-            return $this->redirectToRoute('promotion');
-        }
-
+       
         return $this->render('profil/detail.html.twig', [
             'profil' => $profil,
-            'promotion' => $promotion,
 
         ]);
     }

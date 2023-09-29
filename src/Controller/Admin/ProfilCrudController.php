@@ -41,6 +41,7 @@ class ProfilCrudController extends AbstractCrudController
                 ->setTargetFieldName(['lastname', 'firstname']),
             TextEditorField::new('biography'),
             TextField::new('email'),
+            TextField::new('job'),  
             AssociationField::new('businessSector'),  
             AssociationField::new('promotion'),
             DateTimeField::new('createdAt'),
