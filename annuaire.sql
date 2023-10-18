@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : jeu. 28 sep. 2023 à 10:02
+-- Généré le : mer. 18 oct. 2023 à 14:52
 -- Version du serveur : 5.7.39
 -- Version de PHP : 8.2.0
 
@@ -125,7 +125,9 @@ CREATE TABLE `profil` (
 --
 
 INSERT INTO `profil` (`id`, `firstname`, `lastname`, `biography`, `promotion_id`, `business_sector_id`, `created_at`, `email`, `profession_id`, `slug`, `job`) VALUES
-(1, 'Victoria', 'Sendil-Prebou', '<div>chefffe de projet numérique</div>', 8, 1, '2023-09-06 16:52:00', 'victoria_sendilprebou@hotmail.fr', NULL, 'sendil-prebou-victoria', NULL);
+(1, 'Victoria', 'Sendil-Prebou', '<div>cheffe de projet numérique</div>', 8, 1, '2023-09-06 16:52:00', 'victoria_sendilprebou@hotmail.fr', NULL, 'sendil-prebou-victoria', 'Horticultrice'),
+(2, 'Nacim', 'Ouahes', '<div>Diplômé de la promotion Gisèle Halimi, je travaille à la défense</div>', 5, 7, '2023-09-29 17:14:00', 'ouhes.nas@gmail.com', NULL, 'ouahes-nacim', NULL),
+(3, 'Alexis', 'Marin', '<div>Diplômé de la promotion Simone Veil</div>', 6, 6, '2023-09-29 17:15:00', 'alexis.marin@gmail.com', NULL, 'marin-alexis', NULL);
 
 -- --------------------------------------------------------
 
@@ -147,8 +149,7 @@ INSERT INTO `promotion` (`id`, `name`, `image`) VALUES
 (5, 'Gisèle Halimi', 'giseleHalimi.webp'),
 (6, 'Simone Veil', 'simoneVeil.webp'),
 (7, 'Aimé Césaire', 'AimeCesaire.jpg'),
-(8, 'Joséphine Baker', 'josephineBaker.webp'),
-(9, 'test1', 'campusnocturne.jpg');
+(8, 'Joséphine Baker', 'josephineBaker.webp');
 
 -- --------------------------------------------------------
 
@@ -244,13 +245,13 @@ ALTER TABLE `messenger_messages`
 -- AUTO_INCREMENT pour la table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `promotion`
 --
 ALTER TABLE `promotion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `user`
