@@ -21,6 +21,18 @@ class PromotionRepository extends ServiceEntityRepository
         parent::__construct($registry, Promotion::class);
     }
 
+   public function findOneById($value): ?Promotion
+   {
+       return $this->createQueryBuilder('p')
+           ->andWhere('p.id = :val')
+           ->setParameter('val', $value)
+        //    ->orderBy('p.id', 'ASC')
+        //    ->setMaxResults(20)
+           ->getQuery()
+           ->getOneOrNullResult()
+       ;
+   }
+
 //    /**
 //     * @return Promotion[] Returns an array of Promotion objects
 //     */

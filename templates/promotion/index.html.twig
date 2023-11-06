@@ -107,7 +107,7 @@ only screen and (max-width: 760px),
                             </thead>
                             <tbody>
                                 <tr>
-								{% for p in profils %}
+								{% for p in promotion.profils %}
 								
                                 <td data-column="First Name"><a href="{{path( 'app_profil_detail', {'slug': p.slug}) }}"> {{ p.lastname}}</a></td>
                                 {# <td data-column="First Name">{{p.lastname}}</a></td> #}
