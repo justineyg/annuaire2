@@ -15,26 +15,26 @@ class ProfilController extends AbstractController
 {
     
 
-    // #[Route('/profil/{slug}', name: 'app_profil_detail', methods: ['GET'])]
-    // public function index(Profil $profil): Response
-    // {
-       
-    //     return $this->render('profil/detail.html.twig', [
-    //         'profil' => $profil,
-
-    //     ]);
-    // }
-
-
-    #[Route('/profil/id', name: 'app_profil_detail', methods: ['GET'])]
-    public function index($id, EntityManagerInterface $em): Response
+    #[Route('/profil/{slug}', name: 'app_profil_detail', methods: ['GET'])]
+    public function index(Profil $profil): Response
     {
-       $profil = $em->getRepository(Profil::class)->findOneById($id);
-       if($profil == null){
-        return new JsonResponse('Profil introuvable', 404);
-       }
-       return new JsonResponse($profil, 200);
+       
+        return $this->render('profil/detail.html.twig', [
+            'profil' => $profil,
+
+        ]);
     }
+
+
+    // #[Route('/profil/id', name: 'app_profil_detail', methods: ['GET'])]
+    // public function index($id, EntityManagerInterface $em): Response
+    // {
+    //    $profil = $em->getRepository(Profil::class)->findOneById($id);
+    //    if($profil == null){
+    //     return new JsonResponse('Profil introuvable', 404);
+    //    }
+    //    return new JsonResponse($profil, 200);
+    // }
 
 }
 

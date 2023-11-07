@@ -52,6 +52,14 @@ class ProfilRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+    public function findBySearchQuery($searchQuery){
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.firstname LIKE :searchQuery')
+            ->setParameter('searchQuery', '%' .$searchQuery . '%')
+            ->getQuery()
+            ->getResult();
+    }
 //    /**
 //     * @return Profil[] Returns an array of Profil objects
 //     */

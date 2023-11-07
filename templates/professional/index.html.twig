@@ -21,6 +21,7 @@
     </section>
 
     <section>
+    <p>*Champs obligatoire</p>
         <form method="post">
 
 
@@ -37,7 +38,20 @@
         </form>
     </div>
     </section>
-    <p>*Champs obligatoire</p>
+
+    <section>
+        {% if results is not empty %}
+            <ul>
+                {% for profil in results %}
+                    <li>{{profil.firstname}}</li>
+                    <li>{{profil.lastname}}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Aucun diplômé trouvé.</p>
+        {% endif %}
+    </section>
+    
 
 
 </div>
