@@ -44,6 +44,9 @@ class ProfilCrudController extends AbstractCrudController
             TextField::new('job'),  
             AssociationField::new('businessSector'),  
             AssociationField::new('promotion'),
+            TextField::new('company'), 
+            TextField::new('location'),
+            TextField::new('phoneNumber'), 
             DateTimeField::new('createdAt'),
                 
         ];

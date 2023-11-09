@@ -5,34 +5,35 @@
 {% block body %}
     <style>
     h1{text-align: center}
-    .example-wrapper { margin: 3em auto; max-width: 1000px; width: 100%; font: 18px/1.5 sans-serif; }
+    .example-wrapper { margin: 1em auto; max-width: 1000px; width: 100%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 
-    table { 
-	width: 1200px; 
-	border-collapse: collapse; 
-	margin:50px auto;
-	}
+   .user_informations{
+	display:flex;
+	gap: 20px;
+   }
 
-/* Zebra striping */
-tr:nth-of-type(odd) { 
-	background: #eee;
-    color: #002F34; 
+   section div:not(.user_informations){
+	padding: 20px 0;
+   }
+   .subtitle{
+	font-weight: bold;
+	font-size: 1.3rem;
+   }
+	.student{
+		font-weight: bold;
+		font-size: 2rem;
 	}
-
-th { 
-	background: #21524F; 
-	color: white; 
-	font-weight: bold; 
-	}
-
-td, th { 
-	padding: 10px; 
-	border: 1px solid #ccc; 
-	text-align: left; 
-	font-size: 18px;
-	}
-
+   .left, .right  {
+	width: 60%;
+	background: #21534F;
+	padding: 50px 30px;
+   }
+   .right{
+	width: 40%;
+	background: #21534F;
+	padding: 50px 30px;
+   }
 /* 
 Max width before this PARTICULAR table gets nasty
 This query will take effect for any screen smaller than 760px
@@ -42,86 +43,60 @@ and also iPads specifically.
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
 
-	table { 
-	  	width: 100%; 
-	}
-
-	/* Force table to not be like tables anymore */
-	table, thead, tbody, th, td, tr { 
-		display: block; 
-	}
-	
-	/* Hide table headers (but not display: none;, for accessibility) */
-	thead tr { 
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-	
-	tr { border: 1px solid #ccc; }
-	
-	td { 
-		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #eee; 
-		position: relative;
-		padding-left: 50%; 
-	}
-
-	td:before { 
-		/* Now like a table header */
-		position: absolute;
-		/* Top/left values mimic padding */
-		top: 6px;
-		left: 6px;
-		width: 45%; 
-		padding-right: 10px; 
-		white-space: nowrap;
-		/* Label the data */
-		content: attr(data-column);
-
-		color: #000;
-		font-weight: bold;
-	}
-
 }
     </style>
+
      {% include "partials/_header.html.twig" %}
         <div class="example-wrapper">
             
                 <br><br>
 
                     <div class="user_informations">
-					<h1>{{profil.firstname}} {{profil.lastname}}</h1>
-					<p>Diplômé depuis 2010 de la promotion </p>
-                       <table>
-                            <thead>
-                                <tr>
-								<th>Biographie</th>
-								<th>Métier</td>
-                                <th>Secteur d'activité</th>
-                                <th>Promotion (année et nom)</th>
-                                <th>Contact</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-								
-                                {# <td data-column="First Name"><a href="#"> {{ [profil.lastname, profil.firstname ]}}</a> </td> #}
-								<td>{{profil.biography}}</td>
-								<td data-column="Job Title">{{profil.job}}</td>
-								<td data-column="Job Title">{{profil.businessSector}}</td>
-                                <td data-column="Job Title">{{profil.promotion}}</td>
-                                <td data-column="Twitter">@james</td>
-                                </tr>
-								</a>
-                            </tbody>
-                        </table>
-                    </div>
-				{# {% endfor %} #}
-					
+						<section class="left">
+							<p class="student">{{profil.firstname}} {{profil.lastname}}</p>
+							<p>Diplômé depuis 2010 de la promotion {{profil.promotion}},</p>
+								<div>
+									<p  class="subtitle">À propos de moi</p>
+									<p>{{profil.biography}}</p>
+								</div>
+								<div>
+									<p class="subtitle">Expérience</p>
+								</div>
+						</section>
+
+						<section class="right">
+							<div>
+								<p class="subtitle">Poste actuel</p>
+								<p>{{profil.job}}</p>
+							</div>
+
+							<div>
+								<p class="subtitle">Structure / Organisme </p> 
+								<p>{{profil.company}}</p>
+							</div>
+
+							<div>
+								<p class="subtitle">Localisation du poste</p>
+								<p>{{profil.location}}</p>
+							</div>
+
+
+							<div>
+								<p class="subtitle">Téléphone</p>
+								<p>{{profil.phoneNumber}}</p>
+							</div>
+
+							<div>
+								<p class="subtitle">Email</p>
+								<p><a href="mailto:{{profil.email}}">{{profil.email}}</a></p>
+							</div>
+							<div>
+								<p class="subtitle">Linkedin</p>
+								<p><i class="fa-solid fa-arrow-up-right"></i></p>
+							</div>
+						</section>
+					</div>
+                       		
                 
         </div>
-   
-    </div>
 {% endblock %}

@@ -9,23 +9,13 @@
 </style>
 {% include "partials/_header.html.twig" %}
 <div class="example-wrapper">
-    <div>
-        <aside>
-            <span>Mon compte</span>
-            <p>Bienvenue, {{app.user.lastname}}</hp>
-            <nav>
-                <a href="#"><i class="fa-solid fa-user"></i> Mes informations</a>
-            </nav>
-        </aside>
+    <section>
+        <div>
+            <h1>Mon compte</h1>
+            <p>Mes informations</p>
+            
+        </div>
 
-        <section>
-            <h2>Mes informations</h2>
-            <div>
-            {# <p>{{user.email}}</p> #}
-            </div>
-            <p>Modifier vos informations, identifiants et préférences...</p>
-
-        </section>
-    </div>
+    </section>
 </div>
 {% endblock %}
