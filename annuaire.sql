@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : mer. 18 oct. 2023 à 14:52
+-- Généré le : ven. 10 nov. 2023 à 14:06
 -- Version du serveur : 5.7.39
 -- Version de PHP : 8.2.0
 
@@ -82,7 +82,8 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20230906125909', '2023-09-06 12:59:16', 51),
 ('DoctrineMigrations\\Version20230906130231', '2023-09-06 13:02:38', 55),
 ('DoctrineMigrations\\Version20230906160309', '2023-09-06 16:03:15', 88),
-('DoctrineMigrations\\Version20230906161112', '2023-09-06 16:11:22', 279);
+('DoctrineMigrations\\Version20230906161112', '2023-09-06 16:11:22', 279),
+('DoctrineMigrations\\Version20231107120759', '2023-11-07 12:08:07', 102);
 
 -- --------------------------------------------------------
 
@@ -117,17 +118,20 @@ CREATE TABLE `profil` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `profession_id` int(11) DEFAULT NULL,
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `job` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `job` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `location` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `company` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone_number` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `profil`
 --
 
-INSERT INTO `profil` (`id`, `firstname`, `lastname`, `biography`, `promotion_id`, `business_sector_id`, `created_at`, `email`, `profession_id`, `slug`, `job`) VALUES
-(1, 'Victoria', 'Sendil-Prebou', '<div>cheffe de projet numérique</div>', 8, 1, '2023-09-06 16:52:00', 'victoria_sendilprebou@hotmail.fr', NULL, 'sendil-prebou-victoria', 'Horticultrice'),
-(2, 'Nacim', 'Ouahes', '<div>Diplômé de la promotion Gisèle Halimi, je travaille à la défense</div>', 5, 7, '2023-09-29 17:14:00', 'ouhes.nas@gmail.com', NULL, 'ouahes-nacim', NULL),
-(3, 'Alexis', 'Marin', '<div>Diplômé de la promotion Simone Veil</div>', 6, 6, '2023-09-29 17:15:00', 'alexis.marin@gmail.com', NULL, 'marin-alexis', NULL);
+INSERT INTO `profil` (`id`, `firstname`, `lastname`, `biography`, `promotion_id`, `business_sector_id`, `created_at`, `email`, `profession_id`, `slug`, `job`, `location`, `company`, `phone_number`) VALUES
+(1, 'Victoria', 'Sendil-Prebou', '<div>cheffe de projet numérique</div>', 8, 1, '2023-09-06 16:52:00', 'victoria_sendilprebou@hotmail.fr', NULL, 'sendil-prebou-victoria', 'Horticultrice', 'Saint-Germain-en-Laye', 'Flora\'s flower', '0678493529'),
+(2, 'Nacim', 'Ouahes', '<div>Diplômé de la promotion <strong>Gisèle Halimi</strong>, je travaille à la défense</div>', 5, 7, '2023-09-29 17:14:00', 'ouhes.nas@gmail.com', NULL, 'ouahes-nacim', NULL, 'Paris 12', 'BTP Paris', '0768493212'),
+(3, 'Alexis', 'Marin', '<div>Diplômé de la promotion Simone Veil</div>', 6, 6, '2023-09-29 17:15:00', 'alexis.marin@gmail.com', NULL, 'marin-alexis', NULL, 'La Défense', 'Suez', '0785434234');
 
 -- --------------------------------------------------------
 
@@ -171,9 +175,6 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `roles`, `password`, `created_at`, `lastname`) VALUES
-(1, 'juju-yaj@live.fr', '[\"ROLE_USER\"]', 'coucou', '2023-08-23 13:38:40', ''),
-(2, 'alexis.marin@gmail.coml', '[\"ROLE_USER\"]', 'hey', '2023-08-23 13:43:42', ''),
-(3, 'ju@live.fr', '[\"ROLE_USER\"]', 'coucou', '2023-08-23 14:50:08', ''),
 (4, 'kali@gmail.com', '[]', '$2y$13$UnqdpmluKDdpNl3nPSkJoOgea.ffjaJrLjfAUuuiEfqRddWtn1Gb2', '2023-08-24 13:34:34', ''),
 (5, 'gege@live.fr', '[]', '$2y$13$ik.yM7Jv1pdul5Pj4dSrrubD4MeCupu5gv.lSIgggAz78KxfwlmLC', '2023-08-24 13:49:07', ''),
 (6, 'alki@gmail.com', '[]', '$2y$13$Nk9vnVs6JCOjNAHqDep2KubiI73zaoYmW7mISF7QmNg/jektIGmXq', '2023-08-24 13:50:45', 'alki');
