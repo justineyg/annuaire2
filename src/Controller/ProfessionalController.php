@@ -2,43 +2,28 @@
 
 namespace App\Controller;
 
+use App\Entity\Promotion;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ProfessionalController extends AbstractController
 {
+
     #[Route('/professional', name: 'app_professional')]
-    public function searchAction(Request $request)
+    public function index(EntityManagerInterface $em): Response
     {
+        $promotionRepository = $em->getRepository(Promotion::class);
 
-        $searchForm = $this->createFormBuilder()
-            ->add('search', TextType::class)
-            ->add('search', SubmitType::class, ['label' => 'Rechercher'])
-            ->getForm();
-            
-        $searchForm->handleRequest($request);
+        $promotions = $promotionRepository->findAll();
 
-        if($searchForm->isSubmitted() && $searchForm->isValid()) {
-            $data = $searchForm->getData();
-            $searchQuery = $data['search'];
 
-            $entityManager = $this->getDoctrine()->getManager;
-            $results = $entityManager->getRepository(Profil::class)->findBySearchQuery($searchQuery);
-
-            return $this->render('professional/index.html.twig', ['results' => $results]);
-        }
+        return $this->render('professional/index.html.twig', [
+            'controller_name' => 'ProfessionalController',
+            'promotions' => $promotions,
+        ]);
     }
-    
-    // #[Route('/professional', name: 'app_professional')]
-    // public function index(): Response
-    // {
-
-    //     return $this->render('professional/index.html.twig', [
-    //         'controller_name' => 'ProfessionalController',
-    //     ]);
-    // }
     
 
 }

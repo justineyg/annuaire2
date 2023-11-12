@@ -22,24 +22,22 @@
 
     <section>
     <p>*Champs obligatoire</p>
-        <form method="post">
-
-
+        <form method="post" action="">
             <input type="firstname" name="firstname" id="inputFirstName" class="form-control" autocomplete="firstName" placeholder="Beaufort*" required autofocus>
             <input type="name" name="name" id="inputName" class="form-control" autocomplete="name" placeholder="Nicholas*" required autofocus>
 
             <select name="promotion" id="selectPromotion" class="form-control" autocomplete="current-promotion" placeholder="" required>
-                <option>Joséphine Baker, 2022</option>
-                <option>Simone Veil, 2021</option>
-                <option>Aimé-Césaire, 2020</option>
-                <option>Gisèle Halimi, 2019</option>
+                <option value="" selected>Tous</option>
+                {% for promotion in promotions  %}
+                <option value={{promotion.id}}>{{promotion.name}}</option>
+                {% endfor %}
             </select>
             <button class="btn btn-lg btn-primary" type="submit">Rechercher</button>
         </form>
     </div>
     </section>
 
-    <section>
+    {# <section>
         {% if results is not empty %}
             <ul>
                 {% for profil in results %}
@@ -50,7 +48,7 @@
         {% else %}
             <p>Aucun diplômé trouvé.</p>
         {% endif %}
-    </section>
+    </section> #}
     
 
 
